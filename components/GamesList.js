@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, ListView } from 'react-native';
+import { View, Text, ListView, StyleSheet } from 'react-native';
+
+import Cell from './Cell.js';
 
 import * as firebase from 'firebase';
 
@@ -55,16 +57,23 @@ class GamesList extends React.Component {
 			// TODO: use pageSize prop to render more than one cell
 			// default, only one cell will be rendered
 			(
-				<View>
+				<View style={style.list}>
 					<ListView
 						dataSource={this.state.games}
-						renderRow={rowData => <Text>{rowData.title}</Text>}
+						renderRow={rowData => <Cell data={rowData} />}
 					/>
 				</View>
 			)
 		);
 	}
 }
+
+var style = StyleSheet.create({
+	list: {
+		flex: 1,
+		backgroundColor: '#3C3C3C',
+	},
+});
 
 let component = GamesList;
 

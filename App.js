@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import * as firebase from 'firebase';
@@ -17,7 +17,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<View>
+				<View style={style.appBackground}>
 					<Dialog><SystemSelect /></Dialog>
 					<GamesList url="gameboy" />
 				</View>
@@ -25,3 +25,10 @@ export default class App extends React.Component {
 		);
 	}
 }
+
+var style = StyleSheet.create({
+	appBackground: {
+		flex: 1,
+		backgroundColor: '#3C3C3C',
+	},
+});
