@@ -70,8 +70,6 @@ class GamesList extends React.Component {
 var style = StyleSheet.create({
 	list: {
 		flex: 1,
-		paddingLeft: 25,
-		paddingRight: 25,
 		backgroundColor: '#ffffff',
 	},
 });

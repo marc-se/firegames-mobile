@@ -24,6 +24,8 @@ var style = StyleSheet.create({
 	cell: {
 		paddingTop: 10,
 		paddingBottom: 10,
+		marginLeft: 25,
+		marginRight: 25,
 		borderBottomColor: '#545454',
 		borderBottomWidth: 0.5,
 	},
