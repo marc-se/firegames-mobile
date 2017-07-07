@@ -19,7 +19,7 @@ export default class App extends React.Component {
 			<Provider store={store}>
 				<View style={style.appBackground}>
 					<Dialog><SystemSelect /></Dialog>
-					<GamesList url="gameboy" />
+					<GamesList />
 				</View>
 			</Provider>
 		);
@@ -29,6 +29,5 @@ export default class App extends React.Component {
 var style = StyleSheet.create({
 	appBackground: {
 		flex: 1,
-		backgroundColor: '#3C3C3C',
 	},
 });

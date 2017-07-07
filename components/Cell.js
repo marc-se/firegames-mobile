@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import Tag from './Tag.js';
+
 export default class Cell extends React.Component {
 	static propTypes = {};
 
 	render() {
 		return (
 			<View style={style.cell}>
-				<Text style={(style.text, style.titleText)}>
+				<Text style={style.title}>
 					{this.props.data.title}
 				</Text>
-				<Text style={(style.text, style.regionText)}>
-					{this.props.data.region}
-				</Text>
+				<View>
+					<Tag text={this.props.data.region} />
+				</View>
 			</View>
 		);
 	}
@@ -20,23 +22,16 @@ export default class Cell extends React.Component {
 
 var style = StyleSheet.create({
 	cell: {
-		padding: 10,
-		backgroundColor: '#3C3C3C',
+		paddingTop: 10,
+		paddingBottom: 10,
+		borderBottomColor: '#545454',
+		borderBottomWidth: 0.5,
 	},
-	text: {
+	title: {
 		paddingTop: 2,
-		paddingBottom: 2,
-	},
-	titleText: {
+		paddingBottom: 9,
 		fontSize: 16,
 		fontWeight: '600',
-		color: '#FEFEFF',
-	},
-	regionText: {
-		backgroundColor: '#03DC8D',
-		color: '#3C3C3C',
-		width: 30,
-		height: 20,
-		textAlign: 'center',
+		color: '#0C0C0C',
 	},
 });

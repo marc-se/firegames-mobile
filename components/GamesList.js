@@ -52,7 +52,6 @@ class GamesList extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			// TODO: use pageSize prop to render more than one cell
 			// default, only one cell will be rendered
@@ -71,7 +70,9 @@ class GamesList extends React.Component {
 var style = StyleSheet.create({
 	list: {
 		flex: 1,
-		backgroundColor: '#3C3C3C',
+		paddingLeft: 25,
+		paddingRight: 25,
+		backgroundColor: '#ffffff',
 	},
 });
 
