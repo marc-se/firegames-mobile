@@ -33,7 +33,7 @@ var style = StyleSheet.create({
 		paddingTop: 2,
 		paddingBottom: 9,
 		fontSize: 16,
-		fontWeight: '600',
+		fontWeight: '500',
 		color: '#0C0C0C',
 	},
 });
