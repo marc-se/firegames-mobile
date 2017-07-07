@@ -12,8 +12,6 @@ export default class Tag extends React.Component {
 		regionColor = this.props.text === 'PAL'
 			? '#0A00FA'
 			: this.props.text === 'JAP' ? '#FA0030' : '#FA6000';
-
-		console.log(regionColor);
 	}
 
 	render() {
