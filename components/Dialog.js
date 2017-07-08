@@ -35,7 +35,7 @@ class Dialog extends React.Component {
 	render() {
 		const children = this.props.children;
 		return (
-			<View style={{ marginTop: 22 }}>
+			<View style={style.dialogWrapper}>
 				<Modal
 					animationType={'slide'}
 					transparent={false}
@@ -45,7 +45,7 @@ class Dialog extends React.Component {
 					}}
 				>
 					<View style={{ marginTop: 22 }}>
-						<View>
+						<View style={style.modalView}>
 							{React.Children.map(children, (child, i) => (
 								<View key={i}>
 									{child}
@@ -56,8 +56,11 @@ class Dialog extends React.Component {
 								onPress={() => {
 									this.setModalVisible(!this.state.modalVisible);
 								}}
+								style={style.modalBtn}
 							>
-								<Text>close</Text>
+								<View style={style.modalCloseBtnWrapper}>
+									<Text style={style.modalCloseBtnText}>OK</Text>
+								</View>
 							</TouchableHighlight>
 
 						</View>
@@ -70,7 +73,7 @@ class Dialog extends React.Component {
 						}}
 						style={style.modalBtn}
 					>
-						<Text style={style.modalBtnText}>
+						<Text style={style.modalEnterBtnText}>
 							{this.props.selectedSystem === 'none'
 								? 'Select a system'
 								: this.getSystemName()}
@@ -83,27 +86,43 @@ class Dialog extends React.Component {
 }
 
 var style = StyleSheet.create({
+	dialogWrapper: {
+		marginTop: 22,
+		marginBottom: 12,
+	},
 	modalBtnWrapper: {
-		shadowColor: '#000000',
+		shadowColor: '#3A3A3A',
 		shadowOffset: {
 			width: 0,
 			height: 3,
 		},
-		shadowRadius: 5,
-		shadowOpacity: 1.0,
+		shadowRadius: 1,
+		shadowOpacity: 0.1,
 		height: 70,
-		backgroundColor: '#eee',
 	},
 	modalBtn: {
 		height: 70,
 	},
-	modalBtnText: {
+	modalEnterBtnText: {
 		fontSize: 18,
 		fontWeight: '300',
 		fontFamily: 'System',
 		position: 'relative',
 		top: 30,
 		left: 25,
+	},
+	modalCloseBtnWrapper: {
+		backgroundColor: '#FAFAFA',
+		height: 70,
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	modalCloseBtnText: {
+		fontSize: 18,
+		fontWeight: '300',
+		fontFamily: 'System',
+		textAlign: 'center',
 	},
 });
 
