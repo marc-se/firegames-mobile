@@ -9,7 +9,7 @@ export default class Cell extends React.Component {
 	render() {
 		return (
 			<View style={style.cell}>
-				<Text style={style.title}>
+				<Text style={style.title} numberOfLines={1}>
 					{this.props.data.title}
 				</Text>
 				<View>
