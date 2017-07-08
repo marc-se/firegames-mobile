@@ -23,6 +23,15 @@ class Dialog extends React.Component {
 		console.log(systemNames);
 	}
 
+	getSystemName() {
+		let systemName;
+		systemName = this.props.systems.filter(
+			system => system.url === this.props.selectedSystem
+		);
+
+		return systemName[0].title;
+	}
+
 	render() {
 		const children = this.props.children;
 		return (
@@ -64,7 +73,7 @@ class Dialog extends React.Component {
 						<Text style={style.modalBtnText}>
 							{this.props.selectedSystem === 'none'
 								? 'Select a system'
-								: this.props.selectedSystem}
+								: this.getSystemName()}
 						</Text>
 					</TouchableHighlight>
 				</View>
