@@ -18,18 +18,19 @@ class SystemSelect extends React.Component {
 	};
 
 	componentWillMount() {
-		const systemsRef = firebase.database().ref('systems');
-		systemsRef.once('value').then(snap => {
-			snap.forEach(system => {
-				systems.push(system.val());
+		if (this.props.systems.length < 1) {
+			const systemsRef = firebase.database().ref('systems');
+			systemsRef.once('value').then(snap => {
+				snap.forEach(system => {
+					systems.push(system.val());
+				});
+
+				this.props.dispatch(updateSystems(systems));
 			});
-			//this.setState({ systems });
-			this.props.dispatch(updateSystems(systems));
-		});
+		}
 	}
 
 	handleUpdate = system => {
-		//this.setState({ system });
 		// update redux store
 		this.props.dispatch(selectSystem(system));
 	};

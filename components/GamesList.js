@@ -23,7 +23,6 @@ class GamesList extends React.Component {
 	};
 
 	componentWillReceiveProps(nextProps) {
-		// TODO: update ListView
 		if (nextProps.selectedSystem === 'none') {
 			this.setState({
 				games: ds,
@@ -53,16 +52,12 @@ class GamesList extends React.Component {
 
 	render() {
 		return (
-			// TODO: use pageSize prop to render more than one cell
-			// default, only one cell will be rendered
-			(
-				<View style={style.list}>
-					<ListView
-						dataSource={this.state.games}
-						renderRow={rowData => <Cell data={rowData} />}
-					/>
-				</View>
-			)
+			<View style={style.list}>
+				<ListView
+					dataSource={this.state.games}
+					renderRow={rowData => <Cell data={rowData} />}
+				/>
+			</View>
 		);
 	}
 }
